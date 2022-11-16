@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="cartView">
+    <p class="lead ml-5 font-weight-bolder">Your shopping cart contains ??? items</p>
+    <form th:action="@{/cart/calculate}" th:object="${productDto}" method="post">
+        <div class="container d-flex justify-content-around">
+            <div class="cart-link"><a th:href="@{/cart/clear}">clear cart</a></div>
+            <div class="cart-link"><a th:href="@{/cart/shopping}">continue shopping</a></div>
+            <div class="cart-link"><a th:href="@{/order/checkout}">proceed to checkout</a></div>
+        </div>
+        <div class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item, istat :${cartItem}" >
+                    <td>
+                        <img th:src="'/images/products/'+${item.name}+'.png'" alt="" class="img-thumbnail">
+                    </td>
+                    <td th:text="${item.name}"></td>
+                    <td>
+
+                        <span th:text="${item.price * item.quantity}"></span>
+                        <br><span th:text="'&#163; '+${item.price}+'/ unit'"></span>
+                    </td>
+                    <td>
+                        <input type="number" name="" id="" min="1" th:field="*{productNumberList}" placeholder="1">
+                        <br>
+                        <span th:if="${productQuantityList.get(istat.index)==null}" th:text="1"></span>
+                        <span th:if="${productQuantityList.get(istat.index)!=0}" th:text="${productQuantityList.get(istat.index)}"></span>
+                    </td>
+                    <td colspan="1">
+                        <button type="submit" class="btn btn-outline-warning mr-1">Calculate</button>
+                        <a th:href="@{'/cart/delete/'+${item.id}}" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+
+
+</div>
+
+</body>
+</html>

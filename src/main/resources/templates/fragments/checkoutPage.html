@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:fragment="checkOut">
+    <h1 class="font-weight-bolder ml-5">Checkout</h1>
+    <p class="ml-5 lead">In order to purchase the items in your shopping cart, please provide us with the following information:</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 cart-link">
+                <form>
+                    <div class="form-group row mt-5">
+                        <label for="name" class="offset-3">name: </label>
+                        <div class="col-sm-6 ml-4" >
+                            <input type="text" id="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="offset-3">email: </label>
+                        <div class="col-sm-6 ml-4">
+                            <input type="email" id="email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phoneNum" class="offset-3">phone: </label>
+                        <div class="col-sm-6 ml-4">
+                            <input type="text" id="phoneNum" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="address" class="offset-3">address: </label>
+                        <div class="col-sm-6 ml-3">
+                            <input type="text" id="address" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="prague" class="offset-3">prague: </label>
+                        <div class="col-sm-6 ml-3">
+                            <input type="number" id="prague" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="credit" class="offset-2">credit card number: </label>
+                        <div class="col-sm-6">
+                            <input type="text" id="credit" class="form-control">
+                        </div>
+                    </div>
+                    <button class="btn btn-light row offset-9 mb-5" type="submit">Submit Purchase</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <ul class="my-3">
+                    <li>Next-day delivery is guaranteed</li>
+                    <li>A &#163; 3.00 delivery surcharge is applied to all purchase orders</li>
+                </ul>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
